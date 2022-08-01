@@ -1,0 +1,50 @@
+<html lang="vi">
+  <head>
+    <title>Cú pháp của HTML</title>
+    <meta
+      name="description"
+      content="Tìm hiểu về các thành phần trong cú pháp của HTML"
+    />
+    <link rel="stylesheet" href="./style.scss" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button>Gio hang ({{cartNumber}})</button>
+
+      <div class="container">
+        <div class="img_product">
+          <img v-bind:src="getProduct.url" />
+        </div>
+        <div class="infor_product">
+          <h2>{{title}}</h2>
+          <p>thương hieu : no bank</p>
+          <p v-if="getProduct.quanty >0 ">ton kho : {{getProduct.quanty}}</p>
+          <p v-if="getProduct.quanty <= 0 ">het hang</p>
+
+          <p>price : {{finalyPrice}}</p>
+          <p>
+            <span> {{formatPrice}}</span> giam gia <span>{{sale*100}}%</span>
+          </p>
+          <p>mau sac : <span>{{getProduct.textColor}}</span></p>
+          <p class="infor_product_img">
+            <img
+              v-bind:class="active(index)"
+              v-on:click="handleClick($event, index)"
+              v-for="(item, index) in listProduct"
+              v-bind:src="item.url"
+              v-bind:alt="item.textColor"
+            />
+          </p>
+          <button v-on:click="handleAdd()">ADD to cart</button>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li v-for="item in listInfor">{{item}}</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
