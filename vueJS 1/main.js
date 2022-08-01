@@ -7,7 +7,7 @@ var vueinstall = new Vue({
     price: 30000,
     sale: 0.3,
     selected: 1,
-    cartNumber:0,
+    cartNumber:1,
     listProduct: [
       {
         url: "http://media.graphcms.com/9jyVjfyATMXQF0eudfZg",
